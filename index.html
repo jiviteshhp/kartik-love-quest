@@ -2,70 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kartik's Love Quest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
             background-color: #ffecf3;
             color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            font-size: 16px;
         }
         
         .container {
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         
         header {
             background-color: #ff6b95;
             color: white;
             text-align: center;
-            padding: 40px 0;
-            border-radius: 0 0 30px 30px;
+            padding: 30px 0;
+            border-radius: 0 0 20px 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         
         h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2rem;
+            padding: 0 10px;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
         }
         
         .subtitle {
             font-style: italic;
             margin-top: 10px;
+            padding: 0 15px;
         }
         
         .profile-section {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
-            margin: 30px 0;
+            margin: 20px 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .profile-pic {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             background-color: #ddd;
             border-radius: 50%;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 100px;
+            font-size: 80px;
             color: #888;
             border: 5px solid #ff6b95;
+            overflow: hidden;
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .quiz-form {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
-            margin: 30px 0;
+            margin: 20px 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
@@ -84,11 +111,22 @@
         select,
         textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 2px solid #ff6b95;
             border-radius: 8px;
             box-sizing: border-box;
             font-family: inherit;
+            font-size: 16px; /* Prevents iOS zoom on focus */
+            -webkit-appearance: none; /* Removes default styling on iOS */
+            appearance: none;
+        }
+        
+        select {
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FF6B95%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px top 50%;
+            background-size: 12px auto;
+            padding-right: 30px;
         }
         
         textarea {
@@ -99,12 +137,16 @@
             background-color: #ff6b95;
             color: white;
             border: none;
-            padding: 12px 30px;
+            width: 100%;
+            padding: 15px 30px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1.1rem;
             font-weight: bold;
             transition: background-color 0.3s;
+            font-family: inherit;
+            -webkit-appearance: none; /* Removes default styling on iOS */
+            appearance: none;
         }
         
         button:hover {
@@ -128,7 +170,7 @@
             background-color: white;
             border-radius: 15px;
             padding: 20px;
-            margin: 30px 0;
+            margin: 20px 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             text-align: center;
         }
@@ -144,9 +186,9 @@
             background-color: #fff4f8;
             border-radius: 10px;
             padding: 15px;
-            margin: 10px;
+            margin: 10px 5px;
             text-align: center;
-            width: calc(33% - 20px);
+            width: calc(33% - 10px);
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
@@ -171,9 +213,64 @@
             text-align: center;
         }
         
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
         @media (max-width: 600px) {
             .stat-item {
-                width: calc(50% - 20px);
+                width: calc(50% - 10px);
+                margin: 5px;
+                padding: 10px;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+                font-size: 70px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .profile-section, .quiz-form, .result-container {
+                padding: 15px;
+            }
+            
+            button {
+                padding: 12px 15px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            body {
+                font-size: 15px;
+            }
+            
+            .stat-item {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -187,9 +284,11 @@
     </header>
     
     <div class="container">
-        <div class="profile-pic">
-    <img src="kartik.jpeg" alt="Kartik" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-</div>
+        <div class="profile-section">
+            <h2>Meet Kartik</h2>
+            <div class="profile-pic">
+                <img src="kartik.jpeg" alt="Kartik">
+            </div>
             
             <div class="baniya-box">
                 <h3>✨ Certified Baniya Boyfriend Material ✨</h3>
@@ -234,20 +333,20 @@
             <h2>Are You Kartik's Soulmate?</h2>
             <p>Take this extremely scientific compatibility quiz to find out!</p>
             
-            <form id="loveQuiz">
+            <form id="loveQuiz" action="https://formspree.io/f/YOUR_UNIQUE_ENDPOINT" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name:</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Your Email:</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label>How do you react to unexpected sounds in quiet environments?</label>
-                    <select id="sounds" required>
+                    <label for="sounds">How do you react to unexpected sounds in quiet environments?</label>
+                    <select id="sounds" name="sounds" required>
                         <option value="" disabled selected>Choose wisely...</option>
                         <option value="1">I immediately leave the room</option>
                         <option value="2">I pretend I didn't hear anything</option>
@@ -257,8 +356,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Kartik wants to show you his 47th cute couple reel of the day. Your reaction?</label>
-                    <select id="stories" required>
+                    <label for="stories">Kartik wants to show you his 47th cute couple reel of the day. Your reaction?</label>
+                    <select id="stories" name="stories" required>
                         <option value="" disabled selected>Select a response...</option>
                         <option value="1">Excuse yourself to make an urgent call... forever</option>
                         <option value="2">Smile and nod while planning your escape</option>
@@ -268,8 +367,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>What's your ideal use for a thick, squishy human?</label>
-                    <select id="softToy" required>
+                    <label for="softToy">What's your ideal use for a thick, squishy human?</label>
+                    <select id="softToy" name="softToy" required>
                         <option value="" disabled selected>Choose an option...</option>
                         <option value="1">I prefer tall, lean romantic interests</option>
                         <option value="2">Occasional side hugs at social gatherings only</option>
@@ -279,8 +378,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>How do you feel about splitting the bill on every date?</label>
-                    <select id="smart" required>
+                    <label for="smart">How do you feel about splitting the bill on every date?</label>
+                    <select id="smart" name="smart" required>
                         <option value="" disabled selected>Select your stance...</option>
                         <option value="1">Absolutely not. I expect to be treated.</option>
                         <option value="2">I'd prefer if we take turns paying</option>
@@ -290,8 +389,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>In 50 words or less, explain how you would handle Kartik's unfortunate gas problem on a first date:</label>
-                    <textarea id="reason" required></textarea>
+                    <label for="reason">In 50 words or less, explain how you would handle Kartik's unfortunate gas problem on a first date:</label>
+                    <textarea id="reason" name="reason" required></textarea>
                 </div>
                 
                 <button type="submit">Calculate Love Compatibility</button>
@@ -330,7 +429,14 @@
             const totalScore = soundsScore + storiesScore + softToyScore + smartScore;
             const compatibilityPercentage = Math.round((totalScore / 16) * 100);
             
-            // Display results
+            // Add hidden fields to send calculated results to Formspree
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'compatibility_score';
+            hiddenField.value = compatibilityPercentage + '%';
+            this.appendChild(hiddenField);
+            
+            // Display results locally too
             document.getElementById('compatibilityScore').textContent = 
                 `${name}, your compatibility with Kartik is: ${compatibilityPercentage}%`;
             
@@ -347,6 +453,13 @@
                 message = "Amazing! You and Kartik are practically soulmates. We're already planning your couple Instagram reel that will make everyone jealous.";
                 specialHTML = "<p>Suggested first date: Cuddling session while he shows you his top 100 favorite couple reels.</p>";
             }
+            
+            // Add a hidden field with the message
+            const messageField = document.createElement('input');
+            messageField.type = 'hidden';
+            messageField.name = 'result_message';
+            messageField.value = message;
+            this.appendChild(messageField);
             
             // Add special note about their gas-handling strategy
             if (reason.length > 0) {
@@ -371,6 +484,18 @@
             document.getElementById('compatibilityTitle').textContent = "Love Analysis Complete!";
             document.getElementById('resultContainer').style.display = 'block';
             document.querySelector('.quiz-form form').style.display = 'none';
+            
+            // Submit form asynchronously to Formspree
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            return false; // Prevent default form submission
         });
         
         document.getElementById('resetButton').addEventListener('click', function() {
