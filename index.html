@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik's Love Quest</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffecf3;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #ff6b95;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .profile-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: #888;
+            border: 5px solid #ff6b95;
+        }
+        
+        .quiz-form {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff6b95;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        
+        textarea {
+            height: 100px;
+        }
+        
+        button {
+            background-color: #ff6b95;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ff4778;
+        }
+        
+        .heart {
+            color: #ff6b95;
+            font-size: 1.5em;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .result-container {
+            display: none;
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background-color: #fff4f8;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            width: calc(33% - 20px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b95;
+        }
+        
+        .warning-box {
+            background-color: #fff4f8;
+            border-left: 5px solid #ff6b95;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .baniya-box {
+            background-color: #fff8e1;
+            border: 2px dashed #ffd700;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 600px) {
+            .stat-item {
+                width: calc(50% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="heart">❤</span> Kartik's Love Quest <span class="heart">❤</span></h1>
+            <p class="subtitle">Because even Kartik deserves love... despite the flatulence</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="profile-section">
+            <h2>Meet Kartik</h2>
+            <div class="profile-pic">K</div>
+            
+            <div class="baniya-box">
+                <h3>✨ Certified Baniya Boyfriend Material ✨</h3>
+                <p>Rich in wallet but still prefers to split on first date (and all other dates too), rich in gas, poor in social boundaries</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value">💖</div>
+                    <div>Squishy Level</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">📱</div>
+                    <div>Instagram Reels</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">∞</div>
+                    <div>Loneliness Level</div>
+                </div>
+            </div>
+            
+            <p>Hi! I'm Kartik. My friends think I need help finding love, which is probably true since they made this website. Here are some things about me:</p>
+            <ul>
+                <li>I'm thick, short, and squishy - the human equivalent of a marshmallow</li>
+                <li>I'm extremely huggable - I've been compared to a soft toy on multiple occasions</li>
+                <li>I have deep philosophical conversations with DeepSeek about my life (it's the only one who truly understands me)</li>
+                <li>I occasionally release gas when nervous (just keeping it real)</li>
+                <li>I enjoy watching cute couple reels on Instagram while crying into my pillow</li>
+                <li>My bedroom has scented candles for a reason (see gas point above)</li>
+                <li>Straight people mysteriously turn gay for me - it's my superpower</li>
+                <li>My first kiss was with a boy named Nakul, even though I'm straight (it's complicated)</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>WARNING:</strong> Kartik comes with built-in sound effects. Volume cannot be adjusted.</p>
+            </div>
+            
+            <p>Still interested? Either you're very brave or very desperate. Fill out the form below!</p>
+        </div>
+        
+        <div class="quiz-form">
+            <h2>Are You Kartik's Soulmate?</h2>
+            <p>Take this extremely scientific compatibility quiz to find out!</p>
+            
+            <form id="loveQuiz">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>How do you react to unexpected sounds in quiet environments?</label>
+                    <select id="sounds" required>
+                        <option value="" disabled selected>Choose wisely...</option>
+                        <option value="1">I immediately leave the room</option>
+                        <option value="2">I pretend I didn't hear anything</option>
+                        <option value="3">I laugh awkwardly to ease the tension</option>
+                        <option value="4">I contribute my own sound effects to establish dominance</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Kartik wants to show you his 47th cute couple reel of the day. Your reaction?</label>
+                    <select id="stories" required>
+                        <option value="" disabled selected>Select a response...</option>
+                        <option value="1">Excuse yourself to make an urgent call... forever</option>
+                        <option value="2">Smile and nod while planning your escape</option>
+                        <option value="3">Watch attentively while secretly enjoying it</option>
+                        <option value="4">Suggest making your own couple reel right then and there</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>What's your ideal use for a thick, squishy human?</label>
+                    <select id="softToy" required>
+                        <option value="" disabled selected>Choose an option...</option>
+                        <option value="1">I prefer tall, lean romantic interests</option>
+                        <option value="2">Occasional side hugs at social gatherings only</option>
+                        <option value="3">Premium squishing during movie nights</option>
+                        <option value="4">Full-time human pillow with deluxe spooning features</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>How do you feel about splitting the bill on every date?</label>
+                    <select id="smart" required>
+                        <option value="" disabled selected>Select your stance...</option>
+                        <option value="1">Absolutely not. I expect to be treated.</option>
+                        <option value="2">I'd prefer if we take turns paying</option>
+                        <option value="3">I'm fine with splitting for most dates</option>
+                        <option value="4">I love it! Financial responsibility is super attractive</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>In 50 words or less, explain how you would handle Kartik's unfortunate gas problem on a first date:</label>
+                    <textarea id="reason" required></textarea>
+                </div>
+                
+                <button type="submit">Calculate Love Compatibility</button>
+            </form>
+        </div>
+        
+        <div class="result-container" id="resultContainer">
+            <h2 id="compatibilityTitle">Your Results</h2>
+            <p id="compatibilityScore"></p>
+            <p id="compatibilityMessage"></p>
+            <div id="specialMessage"></div>
+            <button id="resetButton">Try Again</button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Kartik's Love Quest | Created with love and brutal honesty by Kartik's friends</p>
+            <p><small>No Kartiks were harmed in the making of this website. His ego, however, is another story.</small></p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('loveQuiz').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const soundsScore = parseInt(document.getElementById('sounds').value);
+            const storiesScore = parseInt(document.getElementById('stories').value);
+            const softToyScore = parseInt(document.getElementById('softToy').value);
+            const smartScore = parseInt(document.getElementById('smart').value);
+            const name = document.getElementById('name').value;
+            const reason = document.getElementById('reason').value;
+            
+            // Calculate compatibility
+            const totalScore = soundsScore + storiesScore + softToyScore + smartScore;
+            const compatibilityPercentage = Math.round((totalScore / 16) * 100);
+            
+            // Display results
+            document.getElementById('compatibilityScore').textContent = 
+                `${name}, your compatibility with Kartik is: ${compatibilityPercentage}%`;
+            
+            let message = '';
+            let specialHTML = '';
+            
+            if (compatibilityPercentage < 40) {
+                message = "Yikes! You and Kartik might not be a match. You'll probably run away at the first unexpected sound effect.";
+                specialHTML = "<p>Suggested first date: Video call only, with mute button ready.</p>";
+            } else if (compatibilityPercentage < 70) {
+                message = "There's potential here! You seem willing to tolerate Kartik's unique qualities. Just bring air freshener on your dates.";
+                specialHTML = "<p>Suggested first date: Outdoor picnic with plenty of fresh air and a separate blanket.</p>";
+            } else {
+                message = "Amazing! You and Kartik are practically soulmates. We're already planning your couple Instagram reel that will make everyone jealous.";
+                specialHTML = "<p>Suggested first date: Cuddling session while he shows you his top 100 favorite couple reels.</p>";
+            }
+            
+            // Add special note about their gas-handling strategy
+            if (reason.length > 0) {
+                specialHTML += `<div class="baniya-box"><p><strong>Kartik's Response:</strong> "Your plan to handle my digestive symphony by saying '${reason}' is noted. My gas and I look forward to meeting you. Don't worry, we'll split the bill for the air freshener."</p></div>`;
+            }
+            
+            // Add a random fart joke
+            const fartJokes = [
+                "Kartik says he's blown away by your compatibility results.",
+                "Kartik is bubbling with excitement at your score.",
+                "Your relationship with Kartik is sure to be a gas!",
+                "Kartik suggests your first date be outdoors for... air quality reasons.",
+                "Kartik's heart AND digestive system are all aflutter thinking about your date.",
+                "Kartik says he'll try to contain his excitement when meeting you (in more ways than one)."
+            ];
+            
+            const randomJoke = fartJokes[Math.floor(Math.random() * fartJokes.length)];
+            specialHTML += `<p><em>${randomJoke}</em></p>`;
+            
+            document.getElementById('compatibilityMessage').textContent = message;
+            document.getElementById('specialMessage').innerHTML = specialHTML;
+            document.getElementById('compatibilityTitle').textContent = "Love Analysis Complete!";
+            document.getElementById('resultContainer').style.display = 'block';
+            document.querySelector('.quiz-form form').style.display = 'none';
+        });
+        
+        document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('resultContainer').style.display = 'none';
+            document.getElementById('loveQuiz').reset();
+            document.querySelector('.quiz-form form').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
